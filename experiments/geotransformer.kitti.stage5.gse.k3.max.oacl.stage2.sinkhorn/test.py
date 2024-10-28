@@ -13,6 +13,8 @@ from dataset import test_data_loader
 from loss import Evaluator
 from model import create_model
 
+import warnings
+warnings.filterwarnings("ignore", category=UserWarning)
 
 class Tester(SingleTester):
     def __init__(self, cfg):

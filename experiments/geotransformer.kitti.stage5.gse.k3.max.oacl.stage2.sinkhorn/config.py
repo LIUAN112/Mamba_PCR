@@ -30,8 +30,8 @@ ensure_dir(_C.feature_dir)
 
 # data
 _C.data = edict()
-# _C.data.dataset_root = osp.join(_C.root_dir, 'data', 'Kitti')
-_C.data.dataset_root = osp.join("/mnt/sda3/Datasets/pcr_datasets/data_odometry_velodyne/dataset/")
+_C.data.dataset_root = osp.join(_C.root_dir, 'data', 'Kitti')
+# _C.data.dataset_root = osp.join("/mnt/sda3/Datasets/pcr_datasets/data_odometry_velodyne/dataset/")
 
 # train data
 _C.train = edict()

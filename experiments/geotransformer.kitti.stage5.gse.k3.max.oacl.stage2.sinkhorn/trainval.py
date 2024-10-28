@@ -10,6 +10,8 @@ from dataset import train_valid_data_loader
 from model import create_model
 from loss import OverallLoss, Evaluator
 
+import warnings
+warnings.filterwarnings("ignore", category=UserWarning)
 
 class Trainer(EpochBasedTrainer):
     def __init__(self, cfg):

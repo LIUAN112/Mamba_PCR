@@ -12,7 +12,7 @@ from geotransformer.modules.transformer.positional_embedding import (
     LearnablePositionalEmbedding,
 )
 from geotransformer.modules.transformer.rpe_transformer import RPETransformerLayer
-from geotransformer.modules.transformer.rep_mamba import PREMamba
+from geotransformer.modules.transformer.rpe_mamba import RPEMambaLayer
 from geotransformer.modules.transformer.vanilla_transformer import (
     TransformerLayer,
     TransformerDecoderLayer,
