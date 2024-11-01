@@ -1,0 +1,13 @@
+# ninja log v5
+2	485	1730294173362738503	/data/aliu/PCR/build/temp.linux-x86_64-cpython-39/geotransformer/extensions/extra/cloud/cloud.o	85a93928163975a5
+0	727	1730294173602741159	/data/aliu/PCR/build/temp.linux-x86_64-cpython-39/geotransformer/extensions/cpu/grid_subsampling/grid_subsampling_cpu.o	90399fba68685290
+1	1173	1730294174050746115	/data/aliu/PCR/build/temp.linux-x86_64-cpython-39/geotransformer/extensions/cpu/radius_neighbors/radius_neighbors_cpu.o	155dda433dfcba4b
+2	18442	1730294191298933620	/data/aliu/PCR/build/temp.linux-x86_64-cpython-39/geotransformer/extensions/pybind.o	8cd588b4644bbcf5
+0	18468	1730294191330933962	/data/aliu/PCR/build/temp.linux-x86_64-cpython-39/geotransformer/extensions/cpu/grid_subsampling/grid_subsampling.o	8969c389e782d7e3
+1	18715	1730294191566936484	/data/aliu/PCR/build/temp.linux-x86_64-cpython-39/geotransformer/extensions/cpu/radius_neighbors/radius_neighbors.o	d9ff0daf0ac38746
+28	540	1730294192910950826	/data/aliu/PCR/build/temp.linux-x86_64-cpython-39/geotransformer/extensions/extra/cloud/cloud.o	5cc3759e7d4d281e
+27	749	1730294193122953085	/data/aliu/PCR/build/temp.linux-x86_64-cpython-39/geotransformer/extensions/cpu/grid_subsampling/grid_subsampling_cpu.o	a87023d1ca298af3
+28	1220	1730294193590958066	/data/aliu/PCR/build/temp.linux-x86_64-cpython-39/geotransformer/extensions/cpu/radius_neighbors/radius_neighbors_cpu.o	e16452aecb68674f
+28	18500	1730294210851138698	/data/aliu/PCR/build/temp.linux-x86_64-cpython-39/geotransformer/extensions/cpu/radius_neighbors/radius_neighbors.o	12f1732a5ce97465
+27	18515	1730294210875138946	/data/aliu/PCR/build/temp.linux-x86_64-cpython-39/geotransformer/extensions/cpu/grid_subsampling/grid_subsampling.o	423108eaf66bee55
+29	18614	1730294210971139935	/data/aliu/PCR/build/temp.linux-x86_64-cpython-39/geotransformer/extensions/pybind.o	f93501881b21862d

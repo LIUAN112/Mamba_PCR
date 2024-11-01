@@ -1,0 +1,30 @@
+ninja_required_version = 1.3
+cxx = c++
+
+cflags = -pthread -B /data/aliu/anaconda3/envs/mamba_pcr/compiler_compat -Wno-unused-result -Wsign-compare -DNDEBUG -O2 -Wall -fPIC -O2 -isystem /data/aliu/anaconda3/envs/mamba_pcr/include -I/data/aliu/anaconda3/envs/mamba_pcr/include -fPIC -O2 -isystem /data/aliu/anaconda3/envs/mamba_pcr/include -I/data/aliu/ncurses-6.5/link/include -fPIC -I/data/aliu/anaconda3/envs/mamba_pcr/lib/python3.9/site-packages/torch/include -I/data/aliu/anaconda3/envs/mamba_pcr/lib/python3.9/site-packages/torch/include/torch/csrc/api/include -I/data/aliu/anaconda3/envs/mamba_pcr/lib/python3.9/site-packages/torch/include/TH -I/data/aliu/anaconda3/envs/mamba_pcr/lib/python3.9/site-packages/torch/include/THC -I/usr/local/cuda-11.3/include -I/data/aliu/anaconda3/envs/mamba_pcr/include/python3.9 -c
+post_cflags = -DTORCH_API_INCLUDE_EXTENSION_H '-DPYBIND11_COMPILER_TYPE="_gcc"' '-DPYBIND11_STDLIB="_libstdcpp"' '-DPYBIND11_BUILD_ABI="_cxxabi1011"' -DTORCH_EXTENSION_NAME=ext -D_GLIBCXX_USE_CXX11_ABI=0 -DTORCH_API_INCLUDE_EXTENSION_H '-DPYBIND11_COMPILER_TYPE="_gcc"' '-DPYBIND11_STDLIB="_libstdcpp"' '-DPYBIND11_BUILD_ABI="_cxxabi1011"' -DTORCH_EXTENSION_NAME=ext -D_GLIBCXX_USE_CXX11_ABI=0 -std=c++14
+cuda_dlink_post_cflags = 
+ldflags = 
+
+rule compile
+  command = $cxx -MMD -MF $out.d $cflags -c $in -o $out $post_cflags
+  depfile = $out.d
+  deps = gcc
+
+
+
+
+
+build /data/aliu/PCR/build/temp.linux-x86_64-cpython-39/geotransformer/extensions/cpu/grid_subsampling/grid_subsampling.o: compile /data/aliu/PCR/geotransformer/extensions/cpu/grid_subsampling/grid_subsampling.cpp
+build /data/aliu/PCR/build/temp.linux-x86_64-cpython-39/geotransformer/extensions/cpu/grid_subsampling/grid_subsampling_cpu.o: compile /data/aliu/PCR/geotransformer/extensions/cpu/grid_subsampling/grid_subsampling_cpu.cpp
+build /data/aliu/PCR/build/temp.linux-x86_64-cpython-39/geotransformer/extensions/cpu/radius_neighbors/radius_neighbors.o: compile /data/aliu/PCR/geotransformer/extensions/cpu/radius_neighbors/radius_neighbors.cpp
+build /data/aliu/PCR/build/temp.linux-x86_64-cpython-39/geotransformer/extensions/cpu/radius_neighbors/radius_neighbors_cpu.o: compile /data/aliu/PCR/geotransformer/extensions/cpu/radius_neighbors/radius_neighbors_cpu.cpp
+build /data/aliu/PCR/build/temp.linux-x86_64-cpython-39/geotransformer/extensions/extra/cloud/cloud.o: compile /data/aliu/PCR/geotransformer/extensions/extra/cloud/cloud.cpp
+build /data/aliu/PCR/build/temp.linux-x86_64-cpython-39/geotransformer/extensions/pybind.o: compile /data/aliu/PCR/geotransformer/extensions/pybind.cpp
+
+
+
+
+
+
+

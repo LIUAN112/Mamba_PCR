@@ -3,7 +3,7 @@ from geotransformer.modules.transformer.conditional_transformer import (
     PEConditionalTransformer,
     RPEConditionalTransformer,
     LRPEConditionalTransformer,
-    RPEConditionalHMT,
+    RPEConditionalHMT
 )
 from geotransformer.modules.transformer.lrpe_transformer import LRPETransformerLayer
 from geotransformer.modules.transformer.pe_transformer import PETransformerLayer

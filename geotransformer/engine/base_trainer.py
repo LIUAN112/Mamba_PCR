@@ -180,7 +180,7 @@ class BaseTrainer(abc.ABC):
         r"""Register model. DDP is automatically used."""
         if self.distributed:
             local_rank = self.local_rank
-            model = nn.parallel.DistributedDataParallel(model, device_ids=[local_rank], output_device=local_rank)
+            model = nn.parallel.DistributedDataParallel(model, device_ids=[local_rank], output_device=local_rank,find_unused_parameters=True)
         self.model = model
         message = 'Model description:\n' + str(model)
         self.logger.info(message)

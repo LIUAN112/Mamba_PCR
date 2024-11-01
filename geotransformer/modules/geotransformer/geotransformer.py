@@ -106,9 +106,7 @@ class GeometricTransformer(nn.Module):
         self.embedding = GeometricStructureEmbedding(hidden_dim, sigma_d, sigma_a, angle_k, reduction_a=reduction_a)
 
         self.in_proj = nn.Linear(input_dim, hidden_dim)
-        # self.transformer = RPEConditionalTransformer(
-            # blocks, hidden_dim, num_heads, dropout=dropout, activation_fn=activation_fn
-        # )
+       
         self.transformer = RPEConditionalHMT(
             blocks, hidden_dim, num_heads, dropout=dropout, activation_fn=activation_fn
         )

@@ -35,6 +35,9 @@ class EpochBasedTrainer(BaseTrainer):
             grad_acc_steps=grad_acc_steps,
         )
         self.max_epoch = max_epoch
+        self.best_rte = float('inf')  # 初始化为正无穷
+        self.best_checkpoint_path = None
+        self.no_improvement_epochs = 0
 
     def before_train_step(self, epoch, iteration, data_dict) -> None:
         pass
@@ -160,6 +163,19 @@ class EpochBasedTrainer(BaseTrainer):
             torch.cuda.empty_cache()
         self.after_val_epoch(self.epoch)
         summary_dict = summary_board.summary()
+
+        # 假设 result_dict 中包含 RTE
+        current_rte = summary_dict['RTE']  # 需要根据实际情况提取RTE
+
+    # 比较当前RTE和最佳RTE
+        if current_rte < self.best_rte:
+            self.best_rte = current_rte
+            self.best_checkpoint_path = f'best_checkpoint.pth.tar'
+            self.save_snapshot(self.best_checkpoint_path)  # 保存最佳检查点
+            self.no_improvement_epochs = 0  # 重置计数器
+        else:
+            self.no_improvement_epochs += 1  # 计数器增加1
+
         message = '[Val] ' + get_log_string(summary_dict, epoch=self.epoch, timer=timer)
         self.logger.critical(message)
         self.write_event('val', summary_dict, self.epoch)
@@ -179,3 +195,8 @@ class EpochBasedTrainer(BaseTrainer):
             self.epoch += 1
             self.train_epoch()
             self.inference_epoch()
+
+            # 提前停止条件检查
+            if self.no_improvement_epochs >= 3:
+                self.logger.info(f"Training stopped early at epoch {self.epoch} due to no RTE improvement for 3 consecutive epochs.")
+                break
